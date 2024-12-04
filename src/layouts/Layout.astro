@@ -2,13 +2,28 @@
 import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+
+// Logic to fetch all the pages in the Sections directory
+
+const fetchedFilesInSections = await Astro.glob(
+  '../components/Sections/*.astro',
+)
+const webSitePages = fetchedFilesInSections.map(({ file }) => ({
+  title: file.split('Sections/')[1].replace('.astro', ''),
+}))
+
+// Array containing all the page titles
+const links: string[] = []
+webSitePages.forEach((page) => {
+  links.push(page.title)
+})
 ---
 
 <!doctype html>
 <html lang="en">
   <BaseHead />
   <body class="flex flex-col min-h-screen">
-    <Header />
+    <Header links={links} />
     <main class="bg-white">
       <slot />
     </main>

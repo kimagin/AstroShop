@@ -1,0 +1,35 @@
+---
+import SectionLayout from '../../layouts/SectionLayout.astro'
+
+// Interface
+interface Props {
+  title?: string
+  description?: string
+}
+
+// Props
+const { title, description } = Astro.props
+
+// Page Properties
+const sectionTitle = title || 'Page Title'
+const sectionDescription = description || 'Generic Page'
+---
+
+<SectionLayout
+  id={sectionTitle}
+  title={sectionTitle}
+  description={sectionDescription}>
+  <!-- Page Contents -->
+  <div class="absolute inset-0 top-24 flex justify-center items-center z-20">
+    <h1 class="">Welcome to Gelato Glace Webpage</h1>
+  </div>
+
+  <!-- Background Image -->
+  <div class="absolute inset-0 flex">
+    <img
+      class="w-full h-full object-cover object-bottom"
+      src="./bg.png"
+      alt=""
+    />
+  </div>
+</SectionLayout>

@@ -1,0 +1,32 @@
+---
+import { _slugify } from '../ts/utils'
+interface Props {
+  title: string
+  description: string
+  classes?: string
+  id?: string
+  fit?: boolean
+  noPadding?: boolean
+}
+
+const { title, description, fit, classes, id, noPadding, ...rest } = Astro.props
+
+// Default Section Classes
+const defaultClasses =
+  'flex flex-col justify-center items-center w-full mx-auto'
+---
+
+<section
+  x-intersect.margin.-10%.0px.-10%.0px="activeLink =$el.dataset.section"
+  data-section={_slugify(title)}
+  class:list={[
+    !noPadding && 'max-w-screen-large',
+    !fit && 'min-h-[100svh]',
+    defaultClasses,
+    classes,
+  ]}
+  {id}
+  {...rest}>
+  <!--Section Contents-->
+  <slot />
+</section>
