@@ -1,16 +1,14 @@
 ---
 // Component Header
 interface Props {
-  title: string
   links: string[]
 }
 
-const { title, links } = Astro.props
+const { links } = Astro.props
 const description = 'Generic Component Description'
 ---
 
 <header
-  id={title}
   class="absolute top-0 left-0 right-0 min-h-24 flex justify-center items-center z-50">
   {
     links.map((link) => {
