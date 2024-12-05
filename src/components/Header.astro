@@ -1,4 +1,11 @@
 ---
+import Logo from '../assets/logo.svg'
+import ShoppingBag from '../assets/icons/shoping-bag.svg'
+import Login from '../assets/icons/login.svg'
+import HotSales from '../assets/icons/hot-sales.svg'
+import IceCreame from '../assets/icons/ice-cream.svg'
+import Hamburger from '../assets/icons/hamburger.svg'
+
 // Component Header
 interface Props {
   links: string[]
@@ -9,10 +16,71 @@ const description = 'Generic Component Description'
 ---
 
 <header
-  class="absolute top-0 left-0 right-0 min-h-24 flex justify-center items-center z-50">
-  {
-    links.map((link) => {
-      return <a href={link}>{link}</a>
-    })
-  }
+  class="absolute top-0 left-0 right-0 min-h-48 flex justify-between items-center z-50 px-16 max-w-[1890px] mx-auto text-sm text-sky-950/90">
+  <!-- Left Section / Links -->
+  <div class="text-sm font-medium flex gap-8 items-center">
+    <div class="bg-pink-200 rounded-full px-2 py-1.5 ring-1 ring-sky-950/80">
+      <Hamburger
+        class="scale-x-125"
+        width={32}
+        height={32}
+      />
+    </div>
+    {
+      links.map((link) => {
+        return (
+          <a
+            class=""
+            href={link}>
+            {link}
+          </a>
+        )
+      })
+    }
+  </div>
+  <!-- Center Section / Logo -->
+  <div class="absolute inset-0 flex">
+    <Logo
+      width={210}
+      class="mx-auto h-auto"
+    />
+  </div>
+  <!-- Right Section / Call to Action -->
+  <div class="flex gap-2">
+    <!-- Seasonal Sales -->
+    <button class="font-medium py-3 rounded-xl flex gap-2 mr-4">
+      Seasonal Sales
+    </button>
+
+    <!-- Call to Action -->
+    <button
+      class="text-black px-4 justify-center items-center rounded-2xl flex gap-2 relative">
+      <IceCreame
+        width={24}
+        height={24}
+      />
+
+      Shop Now
+    </button>
+
+    <!-- Login / Signup -->
+    <button class="ml-6">
+      <Login
+        width={28}
+        height={28}
+      />
+    </button>
+
+    <!-- Cart -->
+    <button class="relative">
+      <ShoppingBag
+        width={28}
+        height={28}
+      />
+      <div
+        class="absolute bottom-0.5 -right-0.5 flex items-center bg-pink-200 text-black/90 border border-sky-950 px-1 font-bold text-xs rounded-full">
+        1
+      </div>
+    </button>
+  </div>
 </header>

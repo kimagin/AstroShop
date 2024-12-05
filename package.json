@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "gelato-glace",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -18,7 +18,6 @@
   },
   "devDependencies": {
     "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.7.2"
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
