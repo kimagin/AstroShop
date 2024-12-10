@@ -23,7 +23,7 @@ const description = 'Gelato Glace Emblem with subtle glare animation'
         height={30 / 2.5}
       />
 
-      <div class="glare glare-animation" />
+      <div class="bling bling-animation" />
     </div>
   )
 }
@@ -37,41 +37,78 @@ const description = 'Gelato Glace Emblem with subtle glare animation'
   />
 </div>
 
-<style is:inline>
-  @keyframes glare {
+<style>
+  @keyframes bling {
     0% {
-      transform: translateX(-50px);
+      transform: translateX(-100%);
+      opacity: 0;
     }
-    40% {
-      transform: translateX(100px);
+    20% {
+      opacity: 0.5;
     }
-    60% {
-      transform: translateX(150px);
+    80% {
+      opacity: 0.5;
     }
     100% {
-      transform: translateX(300px);
+      transform: translateX(200%);
+      opacity: 0;
     }
   }
 
-  .glare {
-    /* Glare Effect */
+  .bling {
     position: absolute;
-    width: 45.37px;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
     background: linear-gradient(
-      113.47deg,
-      rgba(255, 255, 255, 0) 29.61%,
-      #d9d9d9 58.54%,
-      rgba(255, 255, 255, 0) 75%
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.9),
+      transparent
     );
-    mix-blend-mode: screen;
+    transform: skewX(-20deg);
+    opacity: 0;
+    pointer-events: none;
   }
 
-  .glare-animation {
-    /* animation: glare 4s cubic-bezier(0.4, 0, 0.2, 1) infinite; */
-    animation: glare 4s cubic-bezier(0.3, 0.1, 0.3, 0.9) infinite;
+  .bling-animation {
+    animation: bling 1s ease-in-out;
   }
 </style>
+
+<script>
+  const blingElements = document.querySelectorAll('.bling')
+
+  const getRandomDelay = () => {
+    // Random delay between 4000ms (4s) and 10000ms (10s)
+    return Math.random() * (10000 - 4000) + 4000
+  }
+
+  const triggerBling = (bling: HTMLElement) => {
+    if (bling.classList.contains('bling-animation')) {
+      return
+    }
+
+    bling.classList.remove('bling-animation')
+    void bling.offsetWidth
+    bling.classList.add('bling-animation')
+
+    // Schedule next bling with random delay
+    setTimeout(() => triggerBling(bling), getRandomDelay())
+  }
+
+  blingElements.forEach((bling) => {
+    if (!(bling instanceof HTMLElement)) return
+
+    // Handle animation end
+    bling.addEventListener('animationend', () => {
+      bling.classList.remove('bling-animation')
+    })
+
+    // Start with initial random delay
+    setTimeout(() => {
+      triggerBling(bling)
+    }, getRandomDelay())
+  })
+</script>

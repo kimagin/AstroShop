@@ -1,0 +1,131 @@
+---
+// Component Action Button
+import { _slugify } from '../ts/utils'
+
+interface Props {
+  label?: string
+  link?: string
+  glare?: boolean
+}
+
+const { label = 'Fancy Action button', link = '#', glare = false } = Astro.props
+const description = 'Fancy Action button'
+const title = _slugify(label)
+---
+
+<button
+  id={title}
+  class="relative flex h-fit w-fit text-lg rounded-xl font-semibold">
+  <div
+    class="flex transition-transform duration-75 ease-out px-2 py-2 z-50 relative bg-pink-200 rounded-xl ring-[3px] ring-sky-950 hover:translate-x-1.5 hover:translate-y-1.5 gap-2 overflow-hidden">
+    <slot />
+    {label}
+
+    <!-- Button Glare -->
+    {glare && <div class="glare" />}
+  </div>
+
+  <!-- Button Shadow -->
+  <div
+    class="absolute inset-0 bg-sky-950 rounded-xl -z-10 translate-x-1.5 translate-y-1.5">
+  </div>
+</button>
+
+<script>
+  const glareButtons = document.querySelectorAll('.glare')
+
+  const triggerGlare = (glare: HTMLElement) => {
+    // If animation is already running, don't interrupt it
+    if (glare.classList.contains('glare-animation')) {
+      return
+    }
+
+    // Remove any existing animation
+    glare.classList.remove('glare-animation')
+
+    // Force a reflow to restart the animation
+    void glare.offsetWidth
+
+    // Add the animation class
+    glare.classList.add('glare-animation')
+  }
+
+  glareButtons.forEach((glare) => {
+    if (!(glare instanceof HTMLElement)) return
+
+    const parentButton = glare.closest('button')
+
+    // Handle animation end
+    glare.addEventListener('animationend', () => {
+      glare.classList.remove('glare-animation')
+    })
+
+    // Hover effect
+    parentButton?.addEventListener('mouseenter', () => {
+      if (!glare.classList.contains('glare-animation')) {
+        triggerGlare(glare)
+      }
+    })
+
+    // Automatic glare every 10 seconds
+    const startAutoGlare = () => {
+      // Initial delay to prevent immediate animation
+      setTimeout(() => {
+        // Only trigger if not being hovered
+        if (!parentButton?.matches(':hover')) {
+          triggerGlare(glare)
+        }
+      }, Math.random() * 2000) // Random delay up to 2s to prevent all buttons animating simultaneously
+
+      // Set up the interval
+      setInterval(() => {
+        if (!parentButton?.matches(':hover')) {
+          triggerGlare(glare)
+        }
+      }, 10000)
+    }
+
+    // Start the automatic glare effect
+    startAutoGlare()
+  })
+</script>
+
+<style>
+  @keyframes glare {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.5;
+    }
+    80% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateX(200%);
+      opacity: 0;
+    }
+  }
+
+  .glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    );
+    transform: skewX(-20deg);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .glare-animation {
+    animation: glare 2s ease-in-out;
+  }
+</style>

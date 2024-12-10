@@ -1,6 +1,7 @@
 ---
 import SectionLayout from '../../layouts/SectionLayout.astro'
 import Arrow from '../../assets/icons/arrow.svg'
+import ActionButton from '../ActionButton.astro'
 import ShoppingBag from '../../assets/icons/shoping-bag.svg'
 
 // Interface
@@ -24,31 +25,24 @@ const sectionDescription = description || 'Generic Page'
   classes="relative">
   <!-- Page Contents -->
   <div
-    class="absolute top-0 mt-48 flex justify-center items-center z-20 flex-col scale-[0.95] h-fit">
-    <div
-      class="flex flex-col items-center gap-4 border rounded-full justify-center border-sky-900 px-2.5 py-0.5 mb-12 bg-pink-200/20">
-      <h3 class="text-sky-950/90 text-xs font-semibold">
-        ⭐⭐Christmass discounts are here for you <b class="text-sm">🎄</b> | Click
-        to see our best offers ⭐⭐
-      </h3>
-    </div>
+    class="absolute top-0 mt-72 flex justify-center items-center z-20 flex-col scale-[0.95] h-fit">
     <h2 class="text-sky-950/90 text-6xl font-semibold mb-4">
       Heavenly Touch, Divine Scent
     </h2>
     <h3 class="text-black/60 text-xl">
       Infused with pure <em class="font-bold">Italian</em> Artisanal Gelato Aromas
     </h3>
-    <div class="flex gap-3 text-sky-950">
-      <button
-        class="px-4 py-2.5 justify-center items-center text-lg rounded-2xl flex gap-2 relative mt-8 ring-2 ring-sky-950/80 bg-pink-200-950/5">
-        Visit our shop
+    <div class="flex gap-3 text-sky-950 mt-8">
+      <ActionButton
+        label="Shop Now"
+        glare>
         <ShoppingBag
           width={24}
           height={24}
         />
-      </button>
+      </ActionButton>
       <button
-        class="px-4 py-2.5 justify-center items-center text-lg rounded-2xl flex gap-2 relative mt-8 underline underline-offset-4">
+        class="px-4 py-2.5 justify-center items-center text-lg rounded-2xl flex gap-2 relative underline underline-offset-4">
         Learn more
         <Arrow
           width={24}
