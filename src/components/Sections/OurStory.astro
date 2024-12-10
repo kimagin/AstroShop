@@ -1,5 +1,6 @@
 ---
 import SectionLayout from '../../layouts/SectionLayout.astro'
+import ShoppingBag from '../../assets/icons/shoping-bag.svg'
 
 // Interface
 interface Props {
@@ -19,6 +20,87 @@ const sectionDescription = description || 'Generic Page'
   id={sectionTitle}
   title={sectionTitle}
   description={sectionDescription}
-  classes="bg-black">
-  <h1>{sectionTitle}</h1>
+  classes="relative bg-sky-200 h-fit">
+  <div class="h-full mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8 mt-32">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div class="p-8 md:p-12 lg:px-16 lg:py-24">
+        <div
+          class="mx-auto max-w-xl text-center flex flex-col justify-center items-center h-full">
+          <h2 class="text-2xl font-bold text-sky-950 md:text-3xl">
+            ONE JAR. ONE RITUAL. ENDLESS LUXURY
+          </h2>
+
+          <p class="hidden text-sky-950/90 sm:mt-4 sm:block">
+            Imagine waking to a single jar that transforms your day- a creme
+            inspired by Italy's finest indulgence. Gelato Glace isn't just
+            skincare; it's a ritual of elegance, crafted to hydrate, cool, and
+            renew from head to toe. With the silky touch of freshly churned
+            gelato, this all-in-one formula leaves your skin radiant,
+            revitalized, and wrapped in a fresh, delicate scent. No cluttered
+            routines-just pure Italian artistry in one luxurious jar. Because
+            beauty should be simple, indulgent, and effortlessly beautiful.
+            Elevate your skincare with Gelato Glace.
+          </p>
+
+          <button
+            class="px-4 py-2.5 justify-center items-center text-lg rounded-2xl flex gap-2 relative mt-8 ring-2 ring-sky-950/80 bg-pink-200-950/5 text-sky-950 mx-auto">
+            Visit our shop
+            <ShoppingBag
+              width={24}
+              height={24}
+            />
+          </button>
+        </div>
+      </div>
+
+      <div class="grid gap-4 rounded-xl overflow-hidden h-[60vh]">
+        <img
+          class="hover:scale-110 transition duration-500 ease-in-out"
+          alt=""
+          src="./img.png"
+          class="h-96 w-full object-cover sm:h-64 md:h-full"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="h-full mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8 mt-32">
+    <div class="grid grid-cols-1 gap-32 md:grid-cols-2">
+      <div class="grid gap-4 rounded-xl overflow-hidden h-[60vh]">
+        <img
+          alt=""
+          src="https://images.unsplash.com/photo-1535083252457-6080fe29be45?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          class="h-96 w-full object-cover sm:h-64 md:h-full"
+        />
+      </div>
+      <div class="p-8 md:p-12 lg:px-16 lg:py-24">
+        <div
+          class="mx-auto max-w-xl text-center flex flex-col justify-center items-center h-full">
+          <h2 class="text-2xl font-bold text-sky-950 md:text-3xl">
+            ONE JAR. ONE RITUAL. ENDLESS LUXURY
+          </h2>
+
+          <p class="hidden text-sky-950/90 sm:mt-4 sm:block">
+            Imagine waking to a single jar that transforms your day- a creme
+            inspired by Italy's finest indulgence. Gelato Glace isn't just
+            skincare; it's a ritual of elegance, crafted to hydrate, cool, and
+            renew from head to toe. With the silky touch of freshly churned
+            gelato, this all-in-one formula leaves your skin radiant,
+            revitalized, and wrapped in a fresh, delicate scent. No cluttered
+            routines-just pure Italian artistry in one luxurious jar. Because
+            beauty should be simple, indulgent, and effortlessly beautiful.
+            Elevate your skincare with Gelato Glace.
+          </p>
+
+          <button
+            class="px-4 py-2.5 justify-center items-center text-lg rounded-2xl flex gap-2 relative mt-8 ring-2 ring-sky-950/80 bg-pink-200-950/5 text-sky-950 mx-auto">
+            Visit our shop
+            <ShoppingBag
+              width={24}
+              height={24}
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </SectionLayout>

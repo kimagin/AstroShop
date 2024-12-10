@@ -1,17 +1,26 @@
 ---
-import Home from '../components/Sections/Home.astro'
-import Layout from '../layouts/Layout.astro'
-import OurStory from '../components/Sections/OurStory.astro'
+import Home from "../components/Sections/Home.astro";
+import Layout from "../layouts/Layout.astro";
+import OurStory from "../components/Sections/OurStory.astro";
+import Message from "../assets/icons/message.svg";
+import Contact from "../components/Sections/Contact.astro";
 ---
 
 <Layout>
   <!-- Landing Page -->
-  <section class="relative h-full w-full min-h-screen">
-    <!-- Landing Page Contents -->
-    <Home
-      title="Home"
-      description="Gelato Glace welcome you to check this fantastic website"
-    />
-    <OurStory />
-  </section>
+  <!-- Landing Page Contents -->
+  <Home title="Home" />
+  <OurStory title="Our Story" />
+  <Contact title="Contacts" />
+  <!-- Chat with us -->
+  <div class="fixed bottom-12 right-16">
+    <div
+      class="size-fit p-3 bg-pink-200 rounded-full ring-2 ring-sky-950 text-sky-950"
+    >
+      <Message
+        height={32}
+        width={32}
+      />
+    </div>
+  </div>
 </Layout>

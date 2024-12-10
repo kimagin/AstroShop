@@ -1,0 +1,77 @@
+---
+// Component GrandLogo
+
+import Logo from '../assets/logo.svg'
+import Emblem from '../assets/emblem.svg'
+
+interface Props {
+  title: string
+  emblem?: boolean
+  dark?: boolean
+  glare?: boolean
+}
+
+const { title, glare = true, emblem = false, dark = false } = Astro.props
+const description = 'Gelato Glace Emblem with subtle glare animation'
+---
+
+<!-- Emblem -->{
+  emblem && (
+    <div class="relative overflow-hidden flex h-fit w-fit">
+      <Emblem
+        width={287 / 2.5}
+        height={30 / 2.5}
+      />
+
+      <div class="glare glare-animation" />
+    </div>
+  )
+}
+
+<!-- LogoType :: Dark/Light -->
+<div class="mt-4 relative overflow-clip">
+  <Logo
+    class:list={[dark && 'fill-white', !dark && 'fill-black']}
+    width={210}
+    height={85}
+  />
+</div>
+
+<style is:inline>
+  @keyframes glare {
+    0% {
+      transform: translateX(-50px);
+    }
+    40% {
+      transform: translateX(100px);
+    }
+    60% {
+      transform: translateX(150px);
+    }
+    100% {
+      transform: translateX(300px);
+    }
+  }
+
+  .glare {
+    /* Glare Effect */
+    position: absolute;
+    width: 45.37px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+
+    background: linear-gradient(
+      113.47deg,
+      rgba(255, 255, 255, 0) 29.61%,
+      #d9d9d9 58.54%,
+      rgba(255, 255, 255, 0) 75%
+    );
+    mix-blend-mode: screen;
+  }
+
+  .glare-animation {
+    /* animation: glare 4s cubic-bezier(0.4, 0, 0.2, 1) infinite; */
+    animation: glare 4s cubic-bezier(0.3, 0.1, 0.3, 0.9) infinite;
+  }
+</style>

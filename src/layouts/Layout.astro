@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import SectionLayout from './SectionLayout.astro'
 
 // Logic to fetch all the pages in the Sections directory
 
@@ -22,11 +23,13 @@ webSitePages.forEach((page) => {
 <!doctype html>
 <html lang="en">
   <BaseHead />
-  <body class="flex flex-col min-h-screen">
-    <Header links={links} />
-    <main class="bg-white">
-      <slot />
-    </main>
+  <body class="gap-12">
+    <Header {links} />
+    <div>
+      <main class="bg-white relative h-full w-full min-h-screen">
+        <slot />
+      </main>
+    </div>
     <Footer />
   </body>
 </html>

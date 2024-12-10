@@ -1,5 +1,6 @@
 ---
 import Logo from '../assets/logo.svg'
+import GrandLogo from '../components/GrandLogo.astro'
 import ShoppingBag from '../assets/icons/shoping-bag.svg'
 import Login from '../assets/icons/login.svg'
 import HotSales from '../assets/icons/hot-sales.svg'
@@ -39,10 +40,11 @@ const description = 'Generic Component Description'
     }
   </div>
   <!-- Center Section / Logo -->
-  <div class="absolute inset-0 flex">
-    <Logo
-      width={210}
-      class="mx-auto h-auto"
+  <div
+    class="absolute inset-0 flex flex-col w-fit mx-auto justify-center items-center">
+    <GrandLogo
+      title="headerlogo"
+      emblem
     />
   </div>
   <!-- Right Section / Call to Action -->
