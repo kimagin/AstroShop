@@ -1,0 +1,92 @@
+---
+import { AppConfig } from '../AppConfig'
+
+interface Props {
+  title: string
+  description: string
+  image: string
+  author: string
+}
+
+//Canonical URL
+const canonicalURL = Astro.url.href
+const { title, description, image, author } = Astro.props
+
+// Page Title
+let pageTitle = AppConfig.TITLE
+---
+
+<!--Global Meta-->
+<meta
+  name="title"
+  content={`${title} - ${pageTitle}`}
+/>
+
+<meta
+  name="description"
+  content={description}
+/>
+
+<meta
+  name="author"
+  content={author}
+/>
+
+<!-- Open Graph / Facebook -->
+<meta
+  property="og:title"
+  content={`${title} - ${pageTitle}`}
+/>
+<meta
+  property="og:description"
+  content={description}
+/>
+<meta
+  property="og:type"
+  content="website"
+/>
+<meta
+  property="og:url"
+  content={canonicalURL}
+/>
+<meta
+  property="og:image"
+  content={Astro.site ? `${Astro.site}${image}` : image}
+/>
+
+<!-- Mobile Color -->
+<meta
+  name="theme-color"
+  content="bg-almost-black"
+/>
+
+<!-- Twitter -->
+<meta
+  property="twitter:card"
+  content="summary_large_image"
+/>
+<meta
+  property="twitter:url"
+  content={Astro.url}
+/>
+<meta
+  property="twitter:title"
+  content={title}
+/>
+<meta
+  property="twitter:description"
+  content={description}
+/>
+<meta
+  property="twitter:image"
+  content={new URL(image, Astro.url)}
+/>
+
+<!-- canonical URL -->
+<link
+  rel="canonical"
+  href={canonicalURL}
+/>
+
+<!-- page title -->
+<title>{title} - {pageTitle}</title>

@@ -1,25 +1,35 @@
 ---
+import { AppConfig } from '../AppConfig'
 import Home from '../components/Sections/Home.astro'
 import Layout from '../layouts/Layout.astro'
-import OurStory from '../components/Sections/OurStory.astro'
 import Message from '../assets/icons/message.svg'
-import Contact from '../components/Sections/Contact.astro'
+
+// Sections
+
+import SectionOne from '../components/Sections/SectionOne.astro'
+import SectionTwo from '../components/Sections/SectionTwo.astro'
+import SectionThree from '../components/Sections/SectionThree.astro'
+import SectionFour from '../components/Sections/SectionThree.astro'
+import SectionFive from '../components/Sections/SectionThree.astro'
+import SectionSix from '../components/Sections/SectionThree.astro'
+
+// Page Properties
+const title = 'Home'
+const description = AppConfig.DESCRIPTION
+const image = AppConfig.IMAGE
+const author = AppConfig.AUTHOR
 ---
 
-<Layout>
-  <!-- Landing Page -->
-  <!-- Landing Page Contents -->
+<Layout
+  {title}
+  {description}
+  {image}
+  {author}>
   <Home title="Home" />
-  <OurStory title="Our Story" />
-  <Contact title="Contacts" />
-  <!-- Chat with us -->
-  <div class="fixed bottom-12 right-16">
-    <div
-      class="size-fit p-3 bg-pink-200 rounded-full ring-2 ring-sky-950 text-sky-950">
-      <Message
-        height={32}
-        width={32}
-      />
-    </div>
-  </div>
+  <SectionOne title="Our Story" />
+  <SectionTwo title="Product Features" />
+  <SectionThree title="Product One" />
+  <SectionFour title="Product Two" />
+  <SectionFive title="Product Three" />
+  <SectionSix title="Contact" />
 </Layout>
