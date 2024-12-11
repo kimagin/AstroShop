@@ -23,17 +23,25 @@ const description = 'Gelato Glace Emblem with subtle glare animation'
 
 const emblemWidth = small ? 287 / 4 : 287 / 2.5
 const emblemHeight = small ? 30 / 4 : 30 / 2.5
-const logoWidth = small ? 210 / 1.8 : 210
+const logoWidth = small ? 210 / 1.8 : 190
 const logoHeight = small ? 85 / 1.8 : 85
 ---
 
 <div class="flex justify-center items-center flex-col gap-4">
   <!-- Emblem -->{
     emblem && (
-      <div class="relative overflow-hidden flex h-fit w-fit">
+      <div class="relative overflow-hidden  h-fit w-fit hidden mobile:flex">
         <Emblem
           width={emblemWidth}
           height={emblemHeight}
+        />
+
+        <div class="bling bling-animation" />
+      </div>
+<div class="relative overflow-hidden  h-fit w-fit mobile:hidden flex">
+        <Emblem
+      width={emblemWidth/1.5}
+      height={emblemHeight/1.5}
         />
 
         <div class="bling bling-animation" />
@@ -42,11 +50,18 @@ const logoHeight = small ? 85 / 1.8 : 85
   }
 
   <!-- LogoType :: Dark/Light -->
-  <div class="relative overflow-clip">
+  <div class="relative overflow-clip hidden mobile:flex">
     <Logo
       class:list={[dark && 'fill-white', !dark && 'fill-black']}
       width={logoWidth}
       height={logoHeight}
+    />
+  </div>
+  <div class="relative overflow-clip mobile:hidden flex">
+    <Logo
+      class:list={[dark && 'fill-white', !dark && 'fill-black']}
+      width={logoWidth / 1.5}
+      height={logoHeight / 1.5}
     />
   </div>
 </div>
