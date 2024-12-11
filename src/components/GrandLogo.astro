@@ -29,41 +29,46 @@ const logoHeight = small ? 85 / 1.8 : 85
 
 <div class="flex justify-center items-center flex-col gap-4">
   <!-- Emblem -->{
-    emblem && (
-      <div class="relative overflow-hidden  h-fit w-fit hidden mobile:flex">
+    (emblem && (
+      <a class="relative overflow-hidden  h-fit w-fit hidden mobile:flex">
         <Emblem
           width={emblemWidth}
           height={emblemHeight}
         />
 
         <div class="bling bling-animation" />
-      </div>
-<div class="relative overflow-hidden  h-fit w-fit mobile:hidden flex">
+      </a>
+    )) || (
+      <a class="relative overflow-hidden h-fit w-fit mobile:hidden flex">
         <Emblem
-      width={emblemWidth/1.5}
-      height={emblemHeight/1.5}
+          width={emblemWidth / 1.5}
+          height={emblemHeight / 1.5}
         />
 
         <div class="bling bling-animation" />
-      </div>
+      </a>
     )
   }
 
   <!-- LogoType :: Dark/Light -->
-  <div class="relative overflow-clip hidden mobile:flex">
+  <a
+    href="/"
+    class="relative overflow-clip hidden mobile:flex">
     <Logo
       class:list={[dark && 'fill-white', !dark && 'fill-black']}
       width={logoWidth}
       height={logoHeight}
     />
-  </div>
-  <div class="relative overflow-clip mobile:hidden flex">
+  </a>
+  <a
+    href="/"
+    class="relative overflow-clip mobile:hidden flex">
     <Logo
       class:list={[dark && 'fill-white', !dark && 'fill-black']}
       width={logoWidth / 1.5}
       height={logoHeight / 1.5}
     />
-  </div>
+  </a>
 </div>
 <style>
   @keyframes bling {
