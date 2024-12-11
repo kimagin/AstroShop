@@ -29,7 +29,7 @@ const logoHeight = small ? 85 / 1.8 : 85
 
 <div class="flex justify-center items-center flex-col gap-4">
   <!-- Emblem -->{
-    (emblem && (
+    emblem && (
       <a class="relative overflow-hidden  h-fit w-fit hidden mobile:flex">
         <Emblem
           width={emblemWidth}
@@ -38,7 +38,11 @@ const logoHeight = small ? 85 / 1.8 : 85
 
         <div class="bling bling-animation" />
       </a>
-    )) || (
+    )
+  }
+
+  {
+    emblem && (
       <a class="relative overflow-hidden h-fit w-fit mobile:hidden flex">
         <Emblem
           width={emblemWidth / 1.5}

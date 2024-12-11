@@ -34,7 +34,7 @@ const sectionDescription = description || 'Generic Page'
         class="relative text-4xl max-w-xl mobile:text-6xl font-semibold text-sky-950/80 text-center"
         style="content-visibility: auto;">
         <span
-          class="bg-gradient-to-t from-sky-950/80 from-20% to-70% to-sky-950/60 bg-clip-text text-transparent">
+          class="bg-gradient-to-t from-sky-950/90 from-20% to-70% to-sky-950/60 bg-clip-text text-transparent">
           Heavenly Touch, Divine Scent
         </span>
       </h2>
@@ -77,29 +77,57 @@ const sectionDescription = description || 'Generic Page'
     </div>
   </div>
 
-  <div class="absolute inset-0 flex">
+  <div class="absolute inset-0 flex scale-105">
     <img
       src="./bg-mobile.png"
       alt=""
-      class="w-screen h-auto mx-auto object-cover object-bottom flex mobile:hidden"
+      class="background w-screen h-auto mx-auto object-cover object-bottom flex mobile:hidden"
     />
     <img
       src="./bg.png"
       alt=""
-      class="w-screen h-auto mx-auto object-cover object-bottom hidden mobile:flex large:hidden"
+      class="background w-screen h-auto mx-auto object-cover object-bottom hidden mobile:flex large:hidden"
     />
     <img
       src="./bg-large.png"
       alt=""
-      class="w-screen h-auto mx-auto object-cover object-bottom hidden large:flex"
+      class="background w-screen h-auto mx-auto object-cover object-bottom hidden large:flex"
     />
   </div>
+
+  <!-- Floating Elements -->
+
+  <div class="absolute inset-0 flex">
+    <img
+      height="200px"
+      width="auto"
+      src="./element-01.png"
+      alt=""
+      class="element-02 absolute top-[60%] right-[5%] blur-md"
+    />
+    <img
+      height="200px"
+      width="auto"
+      src="./element-02.png"
+      alt=""
+      class="element-01 absolute top-[60%] left-[4%] blur-lg"
+    />
+  </div>
+
   <!-- Bottom Overlay -->
   <div
-    class="absolute top-1/2 bottom-0 w-full from-10% to-30% bg-gradient-to-t from-sky-200/100 to-black/0 z-50">
+    class="absolute top-3/4 bottom-0 w-full from-10% to-30% bg-gradient-to-t from-sky-200/100 to-black/0 z-50">
   </div>
   <!-- Top Overlay -->
   <div
     class="absolute top-0 bottom-1/2 w-full from-10% to-50% bg-gradient-to-b from-sky-50/100 to-sky-100/0">
   </div>
 </SectionLayout>
+
+<script>
+  import { animate, scroll } from 'motion'
+
+  scroll(animate('.background', { y: 1000 }))
+  scroll(animate('.element-01', { y: -500 }))
+  scroll(animate('.element-02', { y: 500 }))
+</script>

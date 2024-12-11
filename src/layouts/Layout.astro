@@ -31,7 +31,7 @@ const navigationList = [
 <!doctype html>
 <html
   lang="en"
-  class="bg-white">
+  class="bg-sky-950">
   <BaseHead
     {title}
     {description}
@@ -39,7 +39,7 @@ const navigationList = [
     {author}
   />
   <body
-    class="gap-12"
+    class="gap-12 relative"
     x-data="{scrollHeader: false,lastScroll: 0,scrollUp: false,activeLink: ''}"
     @scroll.window.throttle.10=`
 scrollHeader = scrollUp && window.pageYOffset < document.body.scrollHeight - window.innerHeight
@@ -48,7 +48,8 @@ scrollUp = window.pageYOffset> window.innerHeight/2 && window.pageYOffset < last
     `>
     <Header links={navigationList} />
     <div>
-      <main class="bg-white relative h-full w-full min-h-screen">
+      <main
+        class="relative h-full w-full min-h-screen shadow-lg shadow-black/30">
         <slot />
       </main>
     </div>

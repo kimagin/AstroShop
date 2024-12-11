@@ -1,0 +1,28 @@
+---
+import SectionLayout from '../../layouts/SectionLayout.astro'
+
+// Interface
+interface Props {
+  title?: string
+  description?: string
+}
+
+// Props
+const { title, description } = Astro.props
+
+// Page Properties
+const sectionTitle = title || 'Our Story'
+const sectionDescription = description || 'Generic Page'
+---
+
+<SectionLayout
+  id={sectionTitle}
+  title={sectionTitle}
+  description={sectionDescription}
+  noPadding
+  classes="z-20 rounded-b-2xl bg-sky-200">
+  <div
+    class="flex h-screen w-full items-center justify-center max-w-screen-large px-5 large:px-10">
+    {sectionTitle}
+  </div>
+</SectionLayout>
