@@ -98,20 +98,20 @@ const sectionDescription = description || 'Generic Page'
   <!-- Floating Elements -->
 
   <div class="absolute inset-0 flex">
-    <img
-      height="200px"
-      width="auto"
-      src="./element-01.png"
-      alt=""
-      class="element-02 absolute top-[60%] right-[5%] blur-md"
-    />
-    <img
-      height="200px"
-      width="auto"
-      src="./element-02.png"
-      alt=""
-      class="element-01 absolute top-[60%] left-[4%] blur-lg"
-    />
+    <!-- <img -->
+    <!--   height="200px" -->
+    <!--   width="auto" -->
+    <!--   src="./element-01.png" -->
+    <!--   alt="" -->
+    <!--   class="element-02 absolute top-[60%] right-[5%] blur-md" -->
+    <!-- /> -->
+    <!-- <img -->
+    <!--   height="200px" -->
+    <!--   width="auto" -->
+    <!--   src="./element-02.png" -->
+    <!--   alt="" -->
+    <!--   class="element-01 absolute top-[60%] left-[4%] blur-lg" -->
+    <!-- /> -->
   </div>
 
   <!-- Bottom Overlay -->
@@ -128,6 +128,4 @@ const sectionDescription = description || 'Generic Page'
   import { animate, scroll } from 'motion'
 
   scroll(animate('.background', { y: 1000 }))
-  scroll(animate('.element-01', { y: -500 }))
-  scroll(animate('.element-02', { y: 500 }))
 </script>
