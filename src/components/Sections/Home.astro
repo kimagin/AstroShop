@@ -3,6 +3,7 @@ import SectionLayout from '../../layouts/SectionLayout.astro'
 import Arrow from '../../assets/icons/arrow.svg'
 import ActionButton from '../ActionButton.astro'
 import ShoppingBag from '../../assets/icons/shoping-bag.svg'
+import LinkButton from '../../components/LinkButton.astro'
 
 // Interface
 interface Props {
@@ -26,30 +27,36 @@ const sectionDescription = description || 'Generic Page'
   <!-- Page Contents -->
   <div
     class="absolute top-0 mt-72 flex justify-center items-center z-20 flex-col scale-[0.95] h-fit">
-    <h2 class="text-sky-950/90 text-6xl font-semibold mb-4">
-      Heavenly Touch, Divine Scent
+    <h2
+      class="relative text-6xl h-full py-2 font-semibold text-sky-950/80"
+      style="content-visibility: auto;">
+      <span
+        class="bg-gradient-to-t from-sky-950/80 from-20% to-70% to-sky-950/60 bg-clip-text text-transparent">
+        Heavenly Touch, Divine Scent
+      </span>
     </h2>
-    <h3 class="text-black/60 text-xl">
+    <h3 class="text-sky-900 text-xl">
       Infused with pure <em class="font-bold">Italian</em> Artisanal Gelato Aromas
     </h3>
-    <div class="flex gap-3 text-sky-950 mt-8">
+    <div class="flex gap-6 text-sky-950 mt-8 justify-center items-center">
       <ActionButton
-        label="Shop Now"
+        label="Visit Our Store"
         glare>
         <ShoppingBag
           width={24}
           height={24}
         />
       </ActionButton>
-      <button
-        class="px-4 py-2.5 justify-center items-center text-lg rounded-2xl flex gap-2 relative underline underline-offset-4">
-        Learn more
+      <LinkButton
+        title="Learn More"
+        animatedIcon
+        icon>
         <Arrow
-          width={24}
-          height={24}
-          class="rotate-90"
+          class=""
+          width={28}
+          height={28}
         />
-      </button>
+      </LinkButton>
     </div>
   </div>
 
@@ -58,7 +65,10 @@ const sectionDescription = description || 'Generic Page'
     <img
       class="w-full h-full object-cover object-top"
       src="./bg.png"
-      alt=""
+      alt="Background"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
     />
   </div>
 

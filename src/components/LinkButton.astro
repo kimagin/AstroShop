@@ -1,0 +1,46 @@
+---
+// Component Link Button
+interface Props {
+  title?: string
+  small?: boolean
+  icon?: boolean
+  animatedIcon?: boolean
+  fullWidth?: boolean
+}
+
+const {
+  title = 'Generic Link',
+  small = false,
+  animatedIcon = false,
+  fullWidth = false,
+  icon = false,
+} = Astro.props
+const description = 'Link Button'
+---
+
+<button
+  class:list={small ? 'text-sm' : 'text-lg'}
+  class="group relative font-semibold flex justify-center items-center h-fit gap-2">
+  <div class="relative py-1">
+    {title}
+    {
+      !fullWidth && (
+        <div class="absolute inset-0 border-b-sky-950 border-b-[3px] scale-x-100 group-hover:scale-x-0 transition-transform delay-75 origin-left duration-500" />
+      )
+    }
+  </div>
+  {
+    icon && (
+      <div
+        class="translate-x-0 transition-transform duration-500 ease-in-out"
+        class:list={animatedIcon ? 'group-hover:translate-x-1' : ''}>
+        <slot />
+      </div>
+    )
+  }
+  {
+    fullWidth && (
+      <div class="absolute inset-0 border-b-sky-950 border-b-[3px] scale-x-0 group-hover:scale-x-100 transition-transform delay-75 origin-left duration-500 " />
+    )
+  }
+</button>

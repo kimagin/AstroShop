@@ -4,8 +4,12 @@ import GrandLogo from '../components/GrandLogo.astro'
 import ShoppingBag from '../assets/icons/shoping-bag.svg'
 import Login from '../assets/icons/login.svg'
 import HotSales from '../assets/icons/hot-sales.svg'
+import Arrow from '../assets/icons/arrow.svg'
+import Story from '../assets/icons/story.svg'
 import IceCreame from '../assets/icons/ice-cream.svg'
 import Hamburger from '../assets/icons/hamburger.svg'
+import LinkButton from '../components/LinkButton.astro'
+import NavigationLink from '../components/NavigationLink.astro'
 
 // Component Header
 interface Props {
@@ -19,24 +23,34 @@ const description = 'Generic Component Description'
 <header
   class="absolute top-0 left-0 right-0 min-h-48 flex justify-between items-center z-50 px-16 max-w-[1890px] mx-auto text-sm text-sky-950/90">
   <!-- Left Section / Links -->
-  <div class="text-sm font-medium flex gap-8 items-center">
-    <div class="bg-pink-200 rounded-full px-2 py-1.5 ring-1 ring-sky-950/80">
+  <div class="text-sm font-medium flex gap-10 items-center">
+    <div
+      class="bg-pink-200 rounded-full px-3 py-1 ring-[2px] ring-sky-950 hover:py-2 transition-all delay-75 cursor-pointer ease-in-out">
       <Hamburger
-        class="scale-x-125"
-        width={32}
-        height={32}
+        class="fill-sky-950"
+        width={28}
+        height={24}
       />
     </div>
+
+    <LinkButton
+      small
+      fullWidth
+      icon
+      title="Our Story">
+      <Story
+        width={20}
+        height={20}
+      />
+    </LinkButton>
     {
-      links.map((link) => {
-        return (
-          <a
-            class=""
-            href={link}>
-            {link}
-          </a>
-        )
-      })
+      links.slice(0, 1).map((link) => (
+        <LinkButton
+          small
+          fullWidth
+          title={link}
+        />
+      ))
     }
   </div>
   <!-- Center Section / Logo -->
@@ -48,41 +62,33 @@ const description = 'Generic Component Description'
     />
   </div>
   <!-- Right Section / Call to Action -->
-  <div class="flex gap-2">
-    <!-- Seasonal Sales -->
-    <button class="font-medium py-3 rounded-xl flex gap-2 mr-4">
-      Seasonal Sales
-    </button>
-
+  <div class="flex gap-8">
     <!-- Call to Action -->
     <button
-      class="text-black px-4 justify-center items-center rounded-2xl flex gap-2 relative">
-      <IceCreame
-        width={24}
-        height={24}
-      />
-
-      Shop Now
-    </button>
-
-    <!-- Login / Signup -->
-    <button class="ml-6">
-      <Login
-        width={28}
-        height={28}
-      />
-    </button>
-
-    <!-- Cart -->
-    <button class="relative">
+      class="text-md font-semibold px-4 justify-center items-center rounded-full flex gap-2 relative bg-gradient-to-tr from-sky-950 to-sky-900 text-pink-200 py-2">
       <ShoppingBag
         width={28}
         height={28}
       />
-      <div
-        class="absolute bottom-0.5 -right-0.5 flex items-center bg-pink-200 text-black/90 border border-sky-950 px-1 font-bold text-xs rounded-full">
-        1
-      </div>
+      Shop Now
     </button>
+
+    <div class="flex justify-center items-center gap-2">
+      <!-- Gelato Icon -->
+      <button>
+        <IceCreame
+          width={28}
+          height={28}
+        />
+      </button>
+
+      <!-- Login / Signup -->
+      <button>
+        <Login
+          width={28}
+          height={28}
+        />
+      </button>
+    </div>
   </div>
 </header>
