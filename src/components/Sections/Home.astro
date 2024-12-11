@@ -65,7 +65,7 @@ const sectionDescription = description || 'Generic Page'
 
         <div class="animate-bounce mobile:hidden">
           <Arrow
-            class="rotate-90 scale-150 translate-y-8"
+            class="rotate-90 scale-150 translate-y-6"
             width={28}
             height={28}
           />
@@ -116,7 +116,7 @@ const sectionDescription = description || 'Generic Page'
 
   <!-- Bottom Overlay -->
   <div
-    class="absolute top-3/4 bottom-0 w-full from-10% to-30% bg-gradient-to-t from-sky-200/100 to-black/0 z-50">
+    class="absolute top-3/4 bottom-0 w-full from-0% to-25% via-20% to-pink-200/0 bg-gradient-to-t from-sky-200/100 via-yellow-100/0 z-50">
   </div>
   <!-- Top Overlay -->
   <div
@@ -127,5 +127,5 @@ const sectionDescription = description || 'Generic Page'
 <script>
   import { animate, scroll } from 'motion'
 
-  scroll(animate('.background', { y: 1000 }))
+  scroll(animate('.background', { y: 2000 }))
 </script>
