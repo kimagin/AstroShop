@@ -6,6 +6,7 @@ interface Props {
   icon?: boolean
   animatedIcon?: boolean
   fullWidth?: boolean
+  classes?: string
 }
 
 const {
@@ -14,12 +15,13 @@ const {
   animatedIcon = false,
   fullWidth = false,
   icon = false,
+  classes = '',
 } = Astro.props
 const description = 'Link Button'
 ---
 
 <button
-  class:list={small ? 'text-sm' : 'text-lg'}
+  class:list={(small ? 'text-sm' : 'text-lg', classes)}
   class="group relative font-semibold flex justify-center items-center h-fit gap-2">
   <div class="relative py-1">
     {title}

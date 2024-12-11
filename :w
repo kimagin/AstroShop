@@ -30,8 +30,9 @@ const sectionDescription = description || 'Generic Page'
   <div class="flex justify-center items-center z-20 flex-col">
     <div class="flex min-h-32"></div>
     <div class="flex flex-col h-full justify-end items-center gap-4">
+      <h3>This is some other text</h3>
       <h2
-        class="relative text-4xl max-w-xl mobile:text-6xl font-semibold text-sky-950/80 text-center"
+        class="relative text-6xl max-w-xl mobile:text-6xl font-semibold text-sky-950/80 text-center"
         style="content-visibility: auto;">
         <span
           class="bg-gradient-to-t from-sky-950/80 from-20% to-70% to-sky-950/60 bg-clip-text text-transparent">
@@ -65,7 +66,7 @@ const sectionDescription = description || 'Generic Page'
 
         <div class="animate-bounce mobile:hidden">
           <Arrow
-            class="rotate-90 scale-150 translate-y-8"
+            class="rotate-90 scale-150 translate-y-12"
             width={28}
             height={28}
           />
