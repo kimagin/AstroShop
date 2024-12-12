@@ -23,42 +23,59 @@ const sectionDescription = description || 'Generic Page'
   id={sectionTitle}
   title={sectionTitle}
   description={sectionDescription}
+  classes="relative overflow-hidden h-[100svh] p-0 px-0 large:py-0"
   noPadding
-  classes="relative overflow-hidden"
   x-intersect:leave="scrollHeader = false">
   <!-- Page Contents -->
-  <div class="flex justify-center items-center z-20 flex-col">
-    <div class="flex min-h-32"></div>
-    <div class="flex flex-col h-full justify-end items-center gap-4">
-      <h2
-        class="relative text-4xl max-w-sm mobile:max-w-lg mobile:text-6xl font-semibold text-sky-950/80 text-center py-2"
-        style="content-visibility: auto;">
-        <span
-          class="bg-gradient-to-t from-sky-950/90 from-20% to-70% to-sky-950/60 bg-clip-text text-transparent">
-          All-in-One <br /> Face & Body Cremè
-        </span>
-      </h2>
-      <h3
-        class="text-sky-900 text-lg max-w-sm tablet:max-w-xl tablet:text-xl text-center">
-        Experience luxurious skincare infused with heavenly scents and <em
-          class="font-bold">Advanced Ice-Lift Technology</em
-        > rejuvenate, hydrate, and transform your skin.
-      </h3>
+  <div class="flex justify-center items-center z-20 flex-col h-full">
+    <div class="flex w-full h-28 mobile:h-48"></div>
+    <div
+      class="flex flex-col h-fit justify-end items-center pt-6 mobile:pt-10 gap-4">
+      <div class="flex flex-col items-center justify-center gap-4">
+        <div class="flex flex-col gap-4 border-red-500">
+          <!-- Small Title / Born in Italy -->
+          <h4
+            class="text-[0.7rem] mobile:text-[1.1rem] tracking-widest font-bold uppercase text-sky-950/50 italic border-b border-t border-sky-950/20 p-1 mobile:px-4 text-center w-fit mx-auto">
+            Skincare Born in Italy
+          </h4>
+
+          <!-- Main Heading -->
+          <h2
+            class="relative text-[2rem] leading-[1.1] tracking-tighter max-w-sm mobile:max-w-3xl mobile:text-7xl font-semibold text-sky-950/80 text-center mobile:mt-8 py-2"
+            style="content-visibility: auto;">
+            <span
+              class="bg-gradient-to-t from-sky-950/90 from-20% to-70% to-sky-950/60 bg-clip-text text-transparent">
+              Feel the Cool<br /> Indulge in the Scent
+            </span>
+          </h2>
+        </div>
+        <!-- Sub Heading -->
+        <h3
+          class="text-sky-950/70 text-md max-w-sm mobile:max-w-4xl mobile:text-xl text-center">
+          Powered by <b>Italian Ice-Lift Technology</b> and decadent gelato scents,
+          this luxurious all-in-one crème for face and body <b class="italic"
+            >hydrates, cools, rejuvenates, and transforms</b
+          > skin.
+        </h3>
+      </div>
+
       <div
-        class="flex mobile:flex-row flex-col gap-6 text-sky-950 mt-8 justify-center items-center">
+        class="flex flex-col gap-6 text-sky-950 mt-8 justify-center items-center">
+        <!-- CTA Action Button -->
         <ActionButton
           label="Discover Gelato Glacè"
           glare>
           <ShoppingBag
-            width={24}
-            height={24}
+            width={20}
+            height={20}
           />
         </ActionButton>
+
+        <!-- CTA Link Button (Hidden) -->
         <LinkButton
-          classes="hidden mobile:flex"
+          classes="hidden"
           title="Or Visit the Store"
-          animatedIcon
-          icon>
+          animatedIcon>
           <Arrow
             class=""
             width={28}
@@ -66,12 +83,12 @@ const sectionDescription = description || 'Generic Page'
           />
         </LinkButton>
 
-        <div class="animate-bounce mobile:hidden">
-          <Arrow
-            class="rotate-90 scale-150 translate-y-6"
-            width={28}
-            height={28}
-          />
+        <div class="animate-bounce">
+          <!-- <Arrow -->
+          <!--   class="rotate-90 scale-150 translate-y-6" -->
+          <!--   width={28} -->
+          <!--   height={28} -->
+          <!-- /> -->
         </div>
       </div>
     </div>
@@ -80,7 +97,8 @@ const sectionDescription = description || 'Generic Page'
     </div>
   </div>
 
-  <div class="absolute inset-0 flex scale-105">
+  <div
+    class="absolute inset-0 flex mobile:scale-110 translate-y-8 w-screen mobile:-translate-y-10">
     <img
       src="./bg-mobile.png"
       alt=""
@@ -106,14 +124,14 @@ const sectionDescription = description || 'Generic Page'
     <!--   width="auto" -->
     <!--   src="./element-01.png" -->
     <!--   alt="" -->
-    <!--   class="element-02 absolute top-[60%] right-[5%] blur-md" -->
+    <!--   class="element-02 absolute top-[60%] right-[5%]" -->
     <!-- /> -->
     <!-- <img -->
     <!--   height="200px" -->
     <!--   width="auto" -->
     <!--   src="./element-02.png" -->
     <!--   alt="" -->
-    <!--   class="element-01 absolute top-[60%] left-[4%] blur-lg" -->
+    <!--   class="element-01 absolute top-[60%] left-[4%]" -->
     <!-- /> -->
   </div>
 
@@ -123,7 +141,7 @@ const sectionDescription = description || 'Generic Page'
   </div>
   <!-- Top Overlay -->
   <div
-    class="absolute top-0 bottom-1/2 w-full from-10% to-50% bg-gradient-to-b from-sky-50/100 to-sky-100/0">
+    class="absolute top-0 bottom-1/2 w-full from-10% to-50% bg-gradient-to-b from-sky-100/100 to-sky-100/0">
   </div>
 </SectionLayout>
 
